@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Wallet</string>
+    <string name="start">Boshlash</string>
+    <string name="manage_money_with_us">Biz bilan <font color="#FF4328">mablag\'</font>ingizni boshqaring</string>
+    <string name="wallet">Hamyon</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="txt_greeting">Salom, %s <br><b>Xush kelibsiz!</b></br></string>
+    <string name="finance_management">Balans boshqaruvi</string>
+    <string name="income">Kirim</string>
+    <string name="expense" tools:ignore="Extraranslation">Chiqim</string>
+    <string name="currency">%s so\'m</string>
+    <string name="amount">Summa</string>
+    <string name="category">Kategoriya</string>
+    <string name="description">Tafsilot</string>
+    <string name="enter">Kiritish</string>
+    <string name="please_set_amount">Iltimos summa kiriting</string>
+    <string name="please_set_correct_amount">Iltimos, to\'g\'ri summa kiriting</string>
+    <string name="please_choose_category">Iltimos, kategoriya tanlang</string>
+    <string name="please_enter_details">Iltimos, tafsilot kitiring</string>
+    <string name="not_enough_money">Yetarli mablag\' mavjud emas</string>
+    <string name="debts">Qarzlar</string>
+    <string name="ask_to_remove">Siz ushbu qarzni qaytarib oldingizmi?</string>
+    <string name="yes">Ha</string>
+    <string name="no">Yo\'q</string>
+    <string name="delete">O\'chirish</string>
+    <string name="edit_name">Ismni o\'zgartirish</string>
+    <string name="add_category">Kategoriya qo\'shish</string>
+    <string name="enter_name">Iltimos, ism kiriting</string>
+    <string name="name">Ism</string>
+    <string name="category_type">Kategoriya turi</string>
+    <string name="category_name">Kategoriya nomi</string>
+    <string name="enter_category_name">Iltimos, nom kiriting</string>
+    <string name="choose_category_type">Iltimos, kategoriya turini tanlang</string>
+</resources>

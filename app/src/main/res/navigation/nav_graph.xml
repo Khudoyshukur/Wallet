@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/walletFragment">
+
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="uz.androdev.wallet.ui.wallet.WalletFragment"
+        android:label="WalletFragment"
+        tools:layout="@layout/fragment_wallet">
+        <action
+            android:id="@+id/action_walletFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment"
+            app:popUpTo="@id/walletFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_walletFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/debtFragment"
+        android:name="uz.androdev.wallet.ui.debt.DebtFragment"
+        android:label="DebtFragment"
+        tools:layout="@layout/fragment_debt" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="uz.androdev.wallet.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="uz.androdev.wallet.ui.onboarding.OnBoardingFragment"
+        android:label="OnBoardingFragment"
+        tools:layout="@layout/fragment_on_boarding">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_walletFragment"
+            app:destination="@id/walletFragment"
+            app:popUpTo="@id/onBoardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/transactionFragment"
+        android:name="uz.androdev.wallet.ui.transaction.TransactionFragment"
+        tools:layout="@layout/fragment_transaction"
+        android:label="TransactionFragment">
+        <argument
+            android:name="transactionType"
+            app:argType="uz.androdev.wallet.ui.transaction.TransactionType" />
+    </dialog>
+</navigation>
