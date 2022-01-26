@@ -17,11 +17,13 @@
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/dialog_add_category.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/dialog_edit_name.xml" value="0.22" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/fragment_debt.xml" value="0.25" />
+        <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/fragment_history.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/fragment_on_boarding.xml" value="0.22" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/fragment_settings.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/fragment_transaction.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/fragment_wallet.xml" value="0.25" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/item_debt.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/layout/item_transaction.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Xudoyshukur/AndroidStudioProjects/Wallet/app/src/main/res/menu/navigation_destinations.xml" value="0.20416666666666666" />
       </map>
     </option>

@@ -3,7 +3,10 @@ package uz.androdev.shared.datasource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.runBlocking
 import uz.androdev.shared.db.Database
 import uz.androdev.shared.entity.IncomeEntity
 import uz.androdev.shared.entity.WalletEntity
@@ -11,6 +14,7 @@ import uz.androdev.shared.mapper.*
 import uz.androdev.shared.model.*
 import java.util.*
 import javax.inject.Inject
+import kotlin.math.exp
 
 /**
  * Created by: androdev
@@ -24,22 +28,6 @@ class WalletDataSource @Inject constructor(
 ) {
     fun getWallet(): Flow<WalletEntity> {
         return database.walletDao.getWallet()
-    }
-
-    fun getExpenseCategories(): LiveData<List<Category>> {
-        val categories = database.walletDao.getCategoriesByType(CategoryType.EXPENSE.toString())
-
-        return Transformations.map(categories) { list ->
-            list.map { it.toCategory() }
-        }
-    }
-
-    fun getIncomeCategories(): LiveData<List<Category>> {
-        val categories = database.walletDao.getCategoriesByType(CategoryType.INCOME.toString())
-
-        return Transformations.map(categories) { list ->
-            list.map { it.toCategory() }
-        }
     }
 
     fun getWallet(walletId: Long): Wallet {
@@ -89,9 +77,6 @@ class WalletDataSource @Inject constructor(
         database.walletDao.getCategoriesByTypeBlocking(CategoryType.BASE.toString())
             .map { it.toCategory() }
 
-    fun insertCategories(categories: List<Category>) {
-        database.walletDao.insertCategories(categoryEntities = categories.map { it.toCategoryEntity() })
-    }
 
     fun updateWallet(wallet: Wallet) {
         database.walletDao.updateWallet(wallet.toWalletEntity())
@@ -114,5 +99,15 @@ class WalletDataSource @Inject constructor(
         )
         val wallet = getWallet(expense.walletId)
         updateWallet(wallet.copy(balance = wallet.balance + expense.expense))
+    }
+
+    fun getTransactions(): Flow<List<Transaction>> {
+        val wallet = runBlocking { getWallet().first() }
+        val expenses = database.walletDao.getExpenses(walletId = wallet.id!!)
+        val incomes = database.walletDao.getIncomes(walletId = wallet.id!!)
+        return incomes.combine(expenses) { incomesList, expensesList ->
+            (incomesList.map { it.toIncome() } + expensesList.map { it.toExpenseEntity() })
+                .sortedByDescending { it.mDate }
+        }
     }
 }

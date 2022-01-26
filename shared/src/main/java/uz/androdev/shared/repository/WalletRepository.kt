@@ -5,10 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import uz.androdev.shared.datasource.WalletDataSource
 import uz.androdev.shared.mapper.toWallet
-import uz.androdev.shared.model.Category
-import uz.androdev.shared.model.Expense
-import uz.androdev.shared.model.Income
-import uz.androdev.shared.model.Wallet
+import uz.androdev.shared.model.*
 import javax.inject.Inject
 
 /**
@@ -24,14 +21,6 @@ class WalletRepository @Inject constructor(
 
     fun getWallet(): Flow<Wallet> {
         return walletDataSource.getWallet().map { it.toWallet() }
-    }
-
-    fun getExpenseCategories(): LiveData<List<Category>> {
-        return walletDataSource.getExpenseCategories()
-    }
-
-    fun getIncomeCategories(): LiveData<List<Category>> {
-        return walletDataSource.getIncomeCategories()
     }
 
     fun getExpenseCategoriesBlocking(): List<Category> {
@@ -66,15 +55,15 @@ class WalletRepository @Inject constructor(
         walletDataSource.insertCategory(category)
     }
 
-    fun insertCategories(categories: List<Category>) {
-        walletDataSource.insertCategories(categories)
-    }
-
     fun getDebts(): Flow<List<Expense>> {
         return walletDataSource.getDebts()
     }
 
     fun removeDebt(expense: Expense) {
         return walletDataSource.removeDebt(expense)
+    }
+
+    fun getTransactions(): Flow<List<Transaction>> {
+        return walletDataSource.getTransactions()
     }
 }

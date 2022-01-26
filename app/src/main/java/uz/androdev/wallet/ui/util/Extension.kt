@@ -19,6 +19,6 @@ fun Double.toFormattedBalance(context: Context): String {
 }
 
 fun Date.toFormattedDate(): String {
-    val simpleDateFormat = SimpleDateFormat("dd MMMM, yyyy", Locale("uz"))
+    val simpleDateFormat = SimpleDateFormat("dd MMMM, yyyy hh:mm", Locale("uz"))
     return simpleDateFormat.format(this)
 }

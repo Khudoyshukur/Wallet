@@ -14,10 +14,13 @@
             android:id="@+id/action_walletFragment_to_onBoardingFragment"
             app:destination="@id/onBoardingFragment"
             app:popUpTo="@id/walletFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_walletFragment_to_transactionFragment"
             app:destination="@id/transactionFragment" />
+        <action
+            android:id="@+id/action_walletFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/debtFragment"
@@ -44,10 +47,15 @@
     <dialog
         android:id="@+id/transactionFragment"
         android:name="uz.androdev.wallet.ui.transaction.TransactionFragment"
-        tools:layout="@layout/fragment_transaction"
-        android:label="TransactionFragment">
+        android:label="TransactionFragment"
+        tools:layout="@layout/fragment_transaction">
         <argument
             android:name="transactionType"
             app:argType="uz.androdev.wallet.ui.transaction.TransactionType" />
     </dialog>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="uz.androdev.wallet.ui.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history" />
 </navigation>

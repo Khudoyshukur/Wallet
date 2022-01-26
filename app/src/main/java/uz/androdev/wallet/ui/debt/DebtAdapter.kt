@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.androdev.shared.model.Expense
-import uz.androdev.wallet.databinding.ItemDebtBinding
+import uz.androdev.wallet.databinding.ItemTransactionBinding
 import uz.androdev.wallet.ui.util.toFormattedBalance
 import uz.androdev.wallet.ui.util.toFormattedDate
 
@@ -20,7 +20,7 @@ class DebtAdapter(private val onDebtClicked: (Expense) -> Unit) :
     ListAdapter<Expense, DebtAdapter.ViewHolder>(DiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemDebtBinding.inflate(inflater, parent, false)
+        val binding = ItemTransactionBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -28,7 +28,8 @@ class DebtAdapter(private val onDebtClicked: (Expense) -> Unit) :
         holder.bind(getItem(position))
     }
 
-    inner class ViewHolder(private val binding: ItemDebtBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemTransactionBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(expense: Expense) {
             binding.details.text = expense.details
             binding.amount.text = expense.expense.toFormattedBalance(binding.root.context)

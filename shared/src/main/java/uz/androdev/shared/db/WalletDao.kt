@@ -51,10 +51,10 @@ interface WalletDao {
     fun insertIncome(incomeEntity: IncomeEntity)
 
     @Query("select * from ExpenseEntity where wallet_id=:walletId")
-    fun getExpenses(walletId: Long): LiveData<List<ExpenseEntity>>
+    fun getExpenses(walletId: Long): Flow<List<ExpenseEntity>>
 
     @Query("select * from IncomeEntity where wallet_id=:walletId")
-    fun getIncomes(walletId: Long): LiveData<List<IncomeEntity>>
+    fun getIncomes(walletId: Long): Flow<List<IncomeEntity>>
 
     @Query("select * from CategoryEntity where type=:type")
     fun getCategoriesByType(type: String): LiveData<List<CategoryEntity>>

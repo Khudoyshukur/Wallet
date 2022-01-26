@@ -56,6 +56,12 @@ class WalletFragment : BaseFragment<FragmentWalletBinding>(FragmentWalletBinding
                 WalletFragmentDirections.actionWalletFragmentToTransactionFragment(TransactionType.Income)
             )
         }
+
+        binding.btnShowHistory.setOnClickListener {
+            findNavController().navigate(
+                WalletFragmentDirections.actionWalletFragmentToHistoryFragment()
+            )
+        }
     }
 
     private fun observeWalletState() {

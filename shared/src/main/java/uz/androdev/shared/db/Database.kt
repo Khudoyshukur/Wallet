@@ -1,14 +1,11 @@
 package uz.androdev.shared.db
 
-import android.content.Context
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import uz.androdev.shared.entity.CategoryEntity
 import uz.androdev.shared.entity.ExpenseEntity
 import uz.androdev.shared.entity.IncomeEntity
 import uz.androdev.shared.entity.WalletEntity
-import javax.inject.Inject
 
 /**
  * Created by: androdev

@@ -16,4 +16,15 @@ data class Income(
     val datetime: Date,
     val walletId: Long = 0,
     val income: Double
-)
+) : Transaction() {
+    override val mId: Long?
+        get() = id
+    override val mDetails: String
+        get() = details
+    override val mDate: Date
+        get() = datetime
+    override val mAmount: Double
+        get() = income
+    override val mType: TransactionType
+        get() = TransactionType.INCOME
+}

@@ -17,4 +17,15 @@ data class Expense(
     val walletId: Long = 0,
     val expense: Double,
     val isDebt: Boolean = false
-)
+) : Transaction() {
+    override val mId: Long?
+        get() = id
+    override val mDetails: String
+        get() = details
+    override val mDate: Date
+        get() = datetime
+    override val mAmount: Double
+        get() = expense
+    override val mType: TransactionType
+        get() = TransactionType.EXPENSE
+}
